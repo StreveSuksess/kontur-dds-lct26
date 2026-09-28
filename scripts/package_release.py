@@ -31,7 +31,9 @@ SCREENSHOTS = {'deliverables/assets/workspace-viewport.png', 'deliverables/asset
                'deliverables/assets/teacher-overview.png', 'deliverables/assets/scenario-review.png',
                'deliverables/assets/teacher-observation.png', 'deliverables/assets/asr-draft.png',
                'deliverables/assets/rc3-preview-desktop.png', 'deliverables/assets/rc3-preview-mobile.png',
-               'deliverables/assets/rc3-report-first-decision.png', 'deliverables/assets/rc3-recommendation-match.png'}
+               'deliverables/assets/rc3-report-first-decision.png', 'deliverables/assets/rc3-recommendation-match.png',
+               'deliverables/assets/rc4-intake112-student.png', 'deliverables/assets/rc4-intake112-review.png',
+               'deliverables/assets/rc4-queue-two-cards.png', 'deliverables/assets/rc4-workspace-queue.png'}
 RESEARCH_NOTES = {'2026-09-19-product-discovery.md', '2026-09-19-market-research.md',
                   '2026-09-19-evaluation-design.md', '2026-09-19-qa-and-feasibility.md',
                   '2026-09-26-additional-materials.md', '2026-09-26-learning-feedback-research.md',
@@ -69,6 +71,8 @@ REQUIRED = {
     'deliverables/kontur-dds-documentation-v2.pdf',
     'deliverables/kontur-dds-defense-v3.pptx', 'deliverables/kontur-dds-defense-v3.pdf',
     'deliverables/kontur-dds-documentation-v3.pdf', 'deliverables/kontur-dds-demo-montage.mp4',
+    'deliverables/kontur-dds-demo-v4.mp4', 'deliverables/assets/rc4-queue-two-cards.png',
+    'deliverables/assets/rc4-intake112-review.png',
     'docs/prototype.md', 'docs/jury-evidence.md', 'docs/evaluation-report.md',
     'memory-bank/research/2026-09-28-chat-qa-audit.md',
 }
@@ -150,7 +154,8 @@ def selected(name: str) -> bool:
         return path.name in MODEL_COMPARISON_EVIDENCE
     if name.startswith('memory-bank/decisions/') and len(path.parts) == 3:
         return path.suffix == '.md'
-    if name in {'deliverables/README.md', 'deliverables/kontur-dds-guide.pdf', 'deliverables/kontur-dds-demo-montage.mp4'}:
+    if name in {'deliverables/README.md', 'deliverables/kontur-dds-guide.pdf',
+                'deliverables/kontur-dds-demo-montage.mp4', 'deliverables/kontur-dds-demo-v4.mp4'}:
         return True
     return bool(re.fullmatch(r'deliverables/kontur-dds-(?:defense-v[0-9]+|documentation-v[0-9]+)\.(?:pptx|pdf)', name))
 
