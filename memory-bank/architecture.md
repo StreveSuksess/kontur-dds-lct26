@@ -1,0 +1,33 @@
+# Текущая архитектура
+
+React19/TypeScript/Vite → same-origin FastAPI/Python3.12 → SQLAlchemy2/SQLiteWAL. Production ASGI раздаёт frontend/dist. Один uvicorn worker, admission24 защищает sync thread/connection pool. PostgreSQL URL предусмотрен, не испытан.
+
+Auth: scrypt, HttpOnly/SameSiteStrict cookie, origin checks, roles student/teacher/admin, ownership scopes. DEMO_MODE создаёт только синтетические учётные записи; production guard запрещает известные demo credentials.
+
+backend/app/routes: scenarios (редактор/версия/approve/generate), sessions (назначения/immutable snapshot/idempotent UUID events/calls/review), reference (классификатор/аналитика), admin (users/audit/backup), ai (ASR/voice/advice), recommendations (авторские правила при ≥3 завершённых попытках). assessment связывает критерии с event IDs; required_facts optional confirmed_by_contact_ids требует предварительный ответ контакта. AI suggestions never overwrite final score.
+
+RC2: `routes/sessions.py` принимает отдельное решение преподавателя по критерию и общее подтверждение с `expected_criterion_revision`; в `expert_review.py` находятся чистый пересчёт `expert_assessment`, эффективные критерии и граница доверия для статистики. Исходные поля отчёта не изменяются; журнал `criterion_review_saved` хранит previous/current, повтор идентичного решения не создаёт ревизию. Новый критерий помечает прежний общий итог устаревшим. `recommendations.py` и `routes/reference.py` используют только подтверждённые пригодные данные; `ai.py` читает эффективные критерии и не выставляет итог. Остановленные попытки исключены из выборки даже после общего разбора.
+
+frontend/src/pages: кабинеты Dashboard/Scenarios/Sessions/Report/Knowledge/Admin и gray-blue Workspace ARM. Phone — scripted counterpart with actual local TTS; AudioInput — manual recording/file → ASR → editable candidate → explicit insert/send. Per-user/session localStorage EventQueue preserves UUID, retries one request at a time, records recovery marker. Draft persists locally and retries server sync; active workspace polls teacher stop. Modal keyboard focus trap.
+
+RC2 UI: `pages/Report.tsx` показывает исходный, пересчитанный и подтверждённый баллы раздельно и держит общий комментарий/черновики при обновлении; `components/CriterionReview.tsx` редактирует решение с причиной и выбором событий. Локальное сохранение одного критерия переносит ревизию для другого открытого черновика; чужой конфликт требует явного обновления. `reportState.ts` централизует подписи и состояние итогового балла. Страница отчёта монтируется по ID попытки, запоздалый GET другой попытки игнорируется.
+
+scripts/import_classifier.py: stdlib OOXML merged cells → backend/data/classifier.json (1281 leaf types with source rows and conditional routing). Eight synthetic scenario seeds, three DDS profiles; full lifecycle and refusal variants with causal gates. Original snapshots immutable.
+
+Optional local AI: scripts/local_ai llama-server Qwen GGUF11434, Whisper-small11435, macOS Milena WAV TTS11436. Loopback only. Raw audio ephemeral, models/runtime ignoredgit. AI review rejects unsupported quotes/criteria. Semantic model smoke weak, deterministic formal checks primary.
+
+Verification: backend pytest, stdlib classifier/backup tests, TypeScript EventQueue Node tests, realHTTP load test, independent benchmark adapter and actual CUA browser checks. scripts/backup.py/restore.py use consistent SQLite backup and new-destination-only atomic restore with auth session invalidation. Docker/Compose provided but daemon unavailable. Source archive/presentation scripts produce deliverables without personal source data.
+
+Release: `scripts/package_release.py` выбирает разрешённые исходники/документы/готовую статику и создаёт детерминированный source ZIP с манифестом; versioned RC2 метаданные не перезаписывают RC1. `scripts/package_offline.py` добавляет ранее проверенные pinned wheels и актуальную статику macOS arm64 CPython3.12. `scripts/install_offline.py` создаёт только новый venv с `pip --no-index` и блокировкой сетевых socket вызовов; smoke выполняется на временной БД.
+
+RC3: `recommendations.py` author-v2 сопоставляет повторяющиеся доверенные слабые критерии с фактической рубрикой утверждённых кандидатов. Исторические провалы объясняются immutable snapshots; ID+label совпадают строго, causal gate нельзя удалить. DTO возвращает только ID/title совпадений и причину подбора; max5, непокрытие относительно показанных пяти. Ранжирование детерминированное; решение назначения остаётся преподавателю.
+
+`components/ScenarioPreview.tsx` — полный преподавательский просмотр карточки, лимитов, контактов/реплик, эталона и связей подтверждения. Student API скрытых будущих данных не получает. `reportState.firstCardDecision` находит первое сохранённое accepted/rejected; Report отдельно показывает время от начала попытки, отсутствие и caveat восстановления связи. Оценивание и исходный report JSON не меняются.
+
+Импортёр проверяет опорные заголовки M1/N1 и отсутствие непустых ячеек за CL; неизвестная схема, включая 046.24, отклоняется до создания/перезаписи JSON. В приложении прежние 1281 тип046.11. Package allowlist включает отдельную spec targeted-practice и безопасные исследовательские заметки26сентября; raw dataset исключён.
+
+Текущий Q&A-срез 28 сентября: `routes/sessions.py` поддерживает преподавательскую атомарную доставку нескольких заранее назначенных попыток через `/sessions/arrive`; у каждой общий серверный `started_at`, который не сбрасывается при последующем открытии. `pages/Sessions.tsx` показывает очередь и действие доставки, `pages/Workspace.tsx` — другие активные карточки и их часы. Одинокий студент по-прежнему может начать назначение сам. `assessment.py` оценивает `reaction` по `card_opened`, критерий с историческим ID `duration` — по первому `status_changed` с непустым комментарием; `duration_seconds` оставляет полную длительность только для информации. Статусы включают `working`.
+
+`routes/intake112.py` — отдельная от ДДС таблица `intake112_attempts` и API двух синтетических текстовых вводных. Ученик заполняет поля карточки/список служб; детерминированное нормализованное сравнение сохраняется со сдачей, преподаватель группы добавляет заключение. `pages/Intake112.tsx` показывает ввод и разбор. Этот путь не генерирует карточку ДДС и не использует территориальную маршрутизацию или живой голос.
+
+`routes/reference.py` аналитика разделяет все/завершённые пригодные/доверенно оценённые/ожидающие проверки/остановленные попытки; критерии агрегируются по `(id,title)`, клиент ранжирует слабые критерии по числу и доле ошибок. `scripts/report_evaluation.py` детерминированно сводит результат синтетического benchmark и проверяет метки/хеш исходного набора.
