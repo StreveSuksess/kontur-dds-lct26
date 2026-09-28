@@ -175,6 +175,11 @@ def test_stopping_and_review_reason(env):
 
 def test_classifier_provenance_and_honest_generator(env):
     result=env['student'].get('/api/classifier?q=14100100').json()
+    if env['app'].state.classifier.get('metadata', {}).get('redacted'):
+        assert result['total']==0
+        r=env['teacher'].post('/api/scenarios/generate',json={'incident_code':'14100100','service':'Мослифт','difficulty':'basic','instructions':'Синтетический случай'})
+        assert r.status_code==404
+        return
     assert result['total']==1 and result['items'][0]['source_row']
     detail=env['student'].get('/api/classifier/14100100').json()
     assert isinstance(detail['routing'],dict)
