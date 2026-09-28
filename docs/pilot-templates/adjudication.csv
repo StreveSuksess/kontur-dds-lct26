@@ -1,0 +1,1 @@
+judgment_id,study_id,case_id,attempt_id,criterion_id,rubric_version,critical,phase,rater_id,blinded_to_system,expert_verdict,reason,evidence_event_ids,original_system_verdict,final_system_verdict,source_judgment_ids,disagreement_reason

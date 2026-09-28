@@ -1,0 +1,65 @@
+{
+  "bundle": "runtime/offline-wheelhouse",
+  "wheel_count": 31,
+  "bundle_bytes": 15685114,
+  "target": {
+    "python": "3.12.13",
+    "major_minor": [
+      3,
+      12
+    ],
+    "system": "Darwin",
+    "machine": "arm64",
+    "implementation": "CPython"
+  },
+  "fresh_venv": "runtime/offline-validation/.venv",
+  "pip_check": "No broken requirements found",
+  "smoke": {
+    "result": "passed",
+    "python": "3.12.13",
+    "network_attempts": 0,
+    "database": "temporary",
+    "dotenv": "not copied",
+    "static_assets_checked": 2,
+    "scenario_count": 8,
+    "lifecycle_score": 100,
+    "ai_mode": "rules",
+    "checks": [
+      "health",
+      "frontend index/assets",
+      "login",
+      "assign",
+      "start",
+      "phone",
+      "events",
+      "submit",
+      "teacher review",
+      "recommendations"
+    ]
+  },
+  "safety_checks": {
+    "existing_venv_refused": true,
+    "wrong_platform_refused": true,
+    "corrupted_file_refused": true
+  },
+  "limits": [
+    "ASGI TestClient; not browser or OS network-disconnect validation",
+    "Linux x86_64 untested",
+    "Python runtime and AI models not included"
+  ],
+  "release_refresh": {
+    "bundle": "runtime/offline-wheelhouse-release",
+    "wheel_count": 31,
+    "bundle_bytes": 15688192,
+    "frontend_index_sha256": "4dd2895dc6082d25b55d76a4b140a4ded0f98ba7dd0cb04470b352eed63f53a5",
+    "network_used": false,
+    "smoke_existing_fresh_venv": {
+      "result": "passed",
+      "network_attempts": 0,
+      "scenario_count": 8,
+      "static_assets_checked": 2,
+      "lifecycle_score": 100
+    },
+    "note": "Frozen frontend snapshot checked with existing fresh no-index venv; dependency installation was performed before this refresh."
+  }
+}

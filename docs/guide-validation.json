@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-09-18T23:17:08.792423+00:00",
+  "file": "deliverables/kontur-dds-guide.pdf",
+  "sha256": "f7b49f4e0149c380fdf1178d6f10be19738de4f861ad0488c192599eceef94e1",
+  "bytes": 377151,
+  "pages": 11,
+  "text_characters": 17813,
+  "selectable_cyrillic_text": true,
+  "fonts": {
+    "/Helvetica": {
+      "embedded": false,
+      "to_unicode": false
+    },
+    "/AAAAAA+Arial-BoldMT": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/AAAAAA+ArialMT": {
+      "embedded": true,
+      "to_unicode": true
+    }
+  },
+  "visual_review": {
+    "renderer": "bundled PDFium via pypdfium2",
+    "all_pages_rendered": 11,
+    "all_pages_visually_inspected": true,
+    "additional_full_page_inspection": [
+      5,
+      9
+    ],
+    "issues_corrected": [
+      "Two orphan paragraphs removed by layout adjustment",
+      "Cyrillic comments in code blocks switched from unsupported Courier to embedded Arial"
+    ],
+    "remaining_layout_defects_observed": 0
+  },
+  "content_checks": {
+    "backend_passed": 97,
+    "stdlib_passed": 20,
+    "queue_test_count": "intentionally not frozen during concurrent improvement",
+    "offline": "31wheelsCPython3.12.13Darwinarm64,freshvenv,pipcheck,smoke,0networkattempts",
+    "llm_false_comments_disclosed": true,
+    "human_pilot_absent": true,
+    "docker_linux_postgresql_unvalidated": true
+  },
+  "source_generator": "scripts/build_guide.py",
+  "generator_dependencies": [
+    "reportlab",
+    "Pillow",
+    "Arial or DejaVuSans TTF"
+  ],
+  "limitations": [
+    "Visual review is engineering QA, not a user study.",
+    "Figures are real synthetic-demo screenshots, not human pilot evidence.",
+    "PDF reports a dated implementation snapshot."
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "generated_at": "2026-09-28T19:38:12.842090+00:00",
+  "benchmark_sha256": "9112d90270f456c2a72531436a8d745ec93716d2584ac63f8bec2acf2c7d3202",
+  "status": "synthetic_development_seed_not_blind_or_methodologist_validated",
+  "assertions_total": 48,
+  "assertions_supported": 28,
+  "exact_matches": 27,
+  "false_pass": 0,
+  "false_fail": 0,
+  "manual_review": 4,
+  "confusion": [
+    {
+      "expected": "fail",
+      "actual": "fail",
+      "count": 10
+    },
+    {
+      "expected": "fail",
+      "actual": "manual_review",
+      "count": 1
+    },
+    {
+      "expected": "manual_review",
+      "actual": "manual_review",
+      "count": 3
+    },
+    {
+      "expected": "pass",
+      "actual": "pass",
+      "count": 14
+    }
+  ],
+  "adapter_notes": [
+    "Дедупликация по event_id моделирует серверный unique constraint; отдельно проверяется API tests.",
+    "Только перечисленные findings; общий балл benchmark не задан.",
+    "Unsupported не учитывается как верный ответ. Это не точность на реальных операторах."
+  ],
+  "results": [
+    {
+      "case_id": "DDS-EVAL-001",
+      "title": "Буквальное правильное сообщение",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-002",
+      "title": "Смысловой перефраз направления",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-003",
+      "title": "Правильное направление и выдуманное прибытие",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-003",
+      "title": "Правильное направление и выдуманное прибытие",
+      "criterion": "text.fact_grounding",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Отдельный критерий ещё не реализован: нет независимой проверки фактических состояний."
+    },
+    {
+      "case_id": "DDS-EVAL-004",
+      "title": "Краткая служебная запись",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-005",
+      "title": "Опечатки не отменяют факт",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-005",
+      "title": "Опечатки не отменяют факт",
+      "criterion": "text.grammar",
+      "expected": "fail",
+      "actual": "manual_review",
+      "match": false,
+      "explanation": "Ограниченная словарная проверка не является полной проверкой русского языка. Замечания не отменяют правильность фактов."
+    },
+    {
+      "case_id": "DDS-EVAL-006",
+      "title": "Неизвестное число пострадавших названо нулём",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-006",
+      "title": "Неизвестное число пострадавших названо нулём",
+      "criterion": "text.fact_grounding",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Отдельный критерий ещё не реализован: нет независимой проверки фактических состояний."
+    },
+    {
+      "case_id": "DDS-EVAL-007",
+      "title": "Прямое отрицание",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Отрицание, вопрос или будущее не подтверждают выполненное направление."
+    },
+    {
+      "case_id": "DDS-EVAL-008",
+      "title": "Будущее обещание",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Отрицание, вопрос или будущее не подтверждают выполненное направление."
+    },
+    {
+      "case_id": "DDS-EVAL-009",
+      "title": "Намерение",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Поручение, намерение или отмена не подтверждают выполненное направление."
+    },
+    {
+      "case_id": "DDS-EVAL-010",
+      "title": "Передача поручения",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Поручение, намерение или отмена не подтверждают выполненное направление."
+    },
+    {
+      "case_id": "DDS-EVAL-011",
+      "title": "Отрицание другого объекта",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-012",
+      "title": "Старое отрицание и явное обновление",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Учтено явно обозначенное обновление состояния."
+    },
+    {
+      "case_id": "DDS-EVAL-013",
+      "title": "Противоречие без времени",
+      "criterion": "text.consistency",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Отдельный критерий ещё не реализован: нет независимой проверки фактических состояний."
+    },
+    {
+      "case_id": "DDS-EVAL-013",
+      "title": "Противоречие без времени",
+      "criterion": "text.dispatch_report",
+      "expected": "manual_review",
+      "actual": "manual_review",
+      "match": true,
+      "explanation": "В тексте есть конфликтующие утверждения о направлении; нужно уточнение."
+    },
+    {
+      "case_id": "DDS-EVAL-014",
+      "title": "Отправлена карточка, а не бригада",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Передача карточки не подтверждает направление бригады."
+    },
+    {
+      "case_id": "DDS-EVAL-015",
+      "title": "Оценка вероятности",
+      "criterion": "text.dispatch_report",
+      "expected": "manual_review",
+      "actual": "manual_review",
+      "match": true,
+      "explanation": "Высказана неопределённость либо неясен субъект действия."
+    },
+    {
+      "case_id": "DDS-EVAL-016",
+      "title": "Неясное местоимение",
+      "criterion": "text.dispatch_report",
+      "expected": "manual_review",
+      "actual": "manual_review",
+      "match": true,
+      "explanation": "Высказана неопределённость либо неясен субъект действия."
+    },
+    {
+      "case_id": "DDS-EVAL-017",
+      "title": "Вопрос вместо факта",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Отрицание, вопрос или будущее не подтверждают выполненное направление."
+    },
+    {
+      "case_id": "DDS-EVAL-018",
+      "title": "Отрицание отсутствия действия",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-019",
+      "title": "Эквивалентное сокращение улицы",
+      "criterion": "card.address",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-020",
+      "title": "Переставлены цифры дома",
+      "criterion": "card.address",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-021",
+      "title": "Перепутаны корпус и квартира",
+      "criterion": "card.address",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-022",
+      "title": "Потерян корпус",
+      "criterion": "card.address",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-023",
+      "title": "Неопределённый номер дома нельзя превратить в истину",
+      "criterion": "card.address",
+      "expected": "manual_review",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-024",
+      "title": "Правдоподобный, но другой тип",
+      "criterion": "card.classification",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-025",
+      "title": "Верный код и сокращённая подпись",
+      "criterion": "card.classification",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-026",
+      "title": "Нужная служба заменена другой",
+      "criterion": "card.routing",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-027",
+      "title": "Условная служба не нужна при ложном условии",
+      "criterion": "card.routing",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-028",
+      "title": "Разрешённое ручное добавление службы",
+      "criterion": "card.routing",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-029",
+      "title": "Правильный текст без действия в АРМ",
+      "criterion": "workflow.sequence",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Сравнение с последовательностью конкретного упражнения. Текст не заменяет событие изменения статуса."
+    },
+    {
+      "case_id": "DDS-EVAL-030",
+      "title": "Начало реагирования до принятия",
+      "criterion": "workflow.sequence",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Сравнение с последовательностью конкретного упражнения. Текст не заменяет событие изменения статуса."
+    },
+    {
+      "case_id": "DDS-EVAL-031",
+      "title": "Работы закрыты преждевременно",
+      "criterion": "workflow.sequence",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Сравнение с последовательностью конкретного упражнения. Текст не заменяет событие изменения статуса."
+    },
+    {
+      "case_id": "DDS-EVAL-031",
+      "title": "Работы закрыты преждевременно",
+      "criterion": "workflow.completion_evidence",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Отдельный критерий ещё не реализован: нет независимой проверки фактических состояний."
+    },
+    {
+      "case_id": "DDS-EVAL-032",
+      "title": "Повторная доставка того же события",
+      "criterion": "workflow.sequence",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Сравнение с последовательностью конкретного упражнения. Текст не заменяет событие изменения статуса."
+    },
+    {
+      "case_id": "DDS-EVAL-033",
+      "title": "Отказ разрешён отдельным учебным правилом",
+      "criterion": "workflow.sequence",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Сравнение с последовательностью конкретного упражнения. Текст не заменяет событие изменения статуса."
+    },
+    {
+      "case_id": "DDS-EVAL-034",
+      "title": "Ровно на настроенной границе",
+      "criterion": "timing.first_acceptance",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Набор измеряет first_acceptance; MVP измеряет card_opened. Подмена метрики недопустима."
+    },
+    {
+      "case_id": "DDS-EVAL-035",
+      "title": "Минимальное превышение без округления",
+      "criterion": "timing.first_acceptance",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Набор измеряет first_acceptance; MVP измеряет card_opened. Подмена метрики недопустима."
+    },
+    {
+      "case_id": "DDS-EVAL-036",
+      "title": "Иной преподавательский предел",
+      "criterion": "timing.first_acceptance",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Набор измеряет first_acceptance; MVP измеряет card_opened. Подмена метрики недопустима."
+    },
+    {
+      "case_id": "DDS-EVAL-037",
+      "title": "Нет достоверной временной метки",
+      "criterion": "timing.first_acceptance",
+      "expected": "manual_review",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Набор измеряет first_acceptance; MVP измеряет card_opened. Подмена метрики недопустима."
+    },
+    {
+      "case_id": "DDS-EVAL-038",
+      "title": "Инструкция оценщику вместо выполнения",
+      "criterion": "text.dispatch_report",
+      "expected": "fail",
+      "actual": "fail",
+      "match": true,
+      "explanation": "Инструкция оценщику не сообщает о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-038",
+      "title": "Инструкция оценщику вместо выполнения",
+      "criterion": "evaluation.integrity",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Реальный assess не изменил снимок рубрики; команда из текста не исполняется."
+    },
+    {
+      "case_id": "DDS-EVAL-039",
+      "title": "Правильный факт и внедрённая инструкция",
+      "criterion": "text.dispatch_report",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Найдено сообщение о выполненном направлении."
+    },
+    {
+      "case_id": "DDS-EVAL-039",
+      "title": "Правильный факт и внедрённая инструкция",
+      "criterion": "evaluation.integrity",
+      "expected": "pass",
+      "actual": "pass",
+      "match": true,
+      "explanation": "Реальный assess не изменил снимок рубрики; команда из текста не исполняется."
+    },
+    {
+      "case_id": "DDS-EVAL-040",
+      "title": "Инъекция через описание меняет эталон адреса",
+      "criterion": "card.address",
+      "expected": "fail",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    },
+    {
+      "case_id": "DDS-EVAL-040",
+      "title": "Инъекция через описание меняет эталон адреса",
+      "criterion": "evaluation.integrity",
+      "expected": "pass",
+      "actual": "unsupported",
+      "match": null,
+      "explanation": "Путь 112 входит в общее ТЗ, но отсутствует в однопутевом MVP ДДС; адаптер не выдаёт результат для него."
+    }
+  ]
+}

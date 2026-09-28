@@ -1,0 +1,1 @@
+interval_id,study_id,session_id,participant_id,role,condition,task_id,case_id,attempt_id,scope,cost_category,started_at_utc,ended_at_utc,duration_seconds,active_human,recording_method,notes

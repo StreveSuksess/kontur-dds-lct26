@@ -1,0 +1,136 @@
+{
+  "recorded_at": "2026-09-18T22:59:05.116045+00:00",
+  "mode": "read_only_dependency_audit_and_static_css_calculation",
+  "npm": {
+    "source": "https://registry.npmjs.org",
+    "command": "NODE_OPTIONS=--use-system-ca npm audit --json --registry=https://registry.npmjs.org",
+    "exit_code": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 5,
+      "dev": 117,
+      "optional": 53,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 121
+    },
+    "report": "dependency-audit-npm.json",
+    "recorded_at_after_prettier": "2026-09-18T23:00:53.014999+00:00",
+    "note": "Repeated after root added prettier3.6.2; no known vulnerabilities."
+  },
+  "python": {
+    "tool": "pip-audit 2.10.1",
+    "source": "PyPI vulnerability service",
+    "scope": "uv frozen runtime requirements, environment markers for this macOS host, no dependencies re-resolved",
+    "packages": 26,
+    "vulnerability_records": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "report": "dependency-audit-python.json"
+  },
+  "input_sha256": {
+    "frontend/package-lock.json": "bb608887ae3dad0e34f77b3274e19368b125802a41aa507b2a9796066c9fdc69",
+    "backend/uv.lock": "0ba1de51cec5560fb6e5e7308b3a2a049df1a6c0ae12d16e74f43d20964527b2",
+    "frontend/src/styles.css": "543a9ceb5758e6dfff8748dfc04bcd9e1ab0737a419b6015299f4ea4abec2181"
+  },
+  "contrast_method": "sRGB linearization at0.04045; relative luminance0.2126R+0.7152G+0.0722B; (Lmax+0.05)/(Lmin+0.05). Selected CSS pairs, not computed browser styles or axe.",
+  "contrast": [
+    {
+      "selector": "body",
+      "foreground": "#263b35",
+      "background": "#f4f6f3",
+      "ratio": 10.982750797798195
+    },
+    {
+      "selector": "muted-page",
+      "foreground": "#748478",
+      "background": "#f4f6f3",
+      "ratio": 3.636051376535523
+    },
+    {
+      "selector": "muted-panel",
+      "foreground": "#748478",
+      "background": "#fdfefb",
+      "ratio": 3.903841357502653
+    },
+    {
+      "selector": "page-header p",
+      "foreground": "#7a8871",
+      "background": "#f4f6f3",
+      "ratio": 3.458199672258363
+    },
+    {
+      "selector": "badge",
+      "foreground": "#727f63",
+      "background": "#edf0e7",
+      "ratio": 3.694456309130037
+    },
+    {
+      "selector": "badge.blue",
+      "foreground": "#447b97",
+      "background": "#e9f1f7",
+      "ratio": 4.0633130396594375
+    },
+    {
+      "selector": "badge.amber",
+      "foreground": "#967732",
+      "background": "#faf0d9",
+      "ratio": 3.719850283868207
+    },
+    {
+      "selector": "arm-fact label",
+      "foreground": "#697983",
+      "background": "#f0f0f0",
+      "ratio": 3.9515338619537332
+    },
+    {
+      "selector": "arm-fact body",
+      "foreground": "#26384a",
+      "background": "#f0f0f0",
+      "ratio": 10.54819975596681
+    },
+    {
+      "selector": "arm-status-log",
+      "foreground": "#ffffff",
+      "background": "#167db8",
+      "ratio": 4.506728668583193
+    },
+    {
+      "selector": "phone-footnote",
+      "foreground": "#7b9bb1",
+      "background": "#eff2f3",
+      "ratio": 2.6048378801352534
+    },
+    {
+      "selector": "recommendation-evidence small",
+      "foreground": "#788880",
+      "background": "#fdfefb",
+      "ratio": 3.683652944345767
+    },
+    {
+      "selector": "primary",
+      "foreground": "#ffffff",
+      "background": "#28695b",
+      "ratio": 6.4379270143530585
+    },
+    {
+      "selector": "focus-outline",
+      "foreground": "#69a78d",
+      "background": "#ffffff",
+      "ratio": 2.7952459842169546
+    }
+  ],
+  "limitations": [
+    "No known advisory match is not a security certification.",
+    "No audit of OS images, model weights, local AI runtime, Python development dependencies, or platform-excluded Python packages.",
+    "No browser DOM/computed style accessibility audit.",
+    "CSS source may change after this dated snapshot."
+  ]
+}

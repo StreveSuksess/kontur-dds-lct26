@@ -1,0 +1,101 @@
+{
+  "date": "2026-09-26",
+  "release": "RC3",
+  "kind": "technical-verification-not-human-pilot",
+  "backend": {
+    "command": "backend/.venv/bin/python -m pytest backend/tests -q",
+    "passed": 150,
+    "warnings": 2,
+    "warning_type": "existing upstream deprecations",
+    "executor": "learning_product_research"
+  },
+  "system": {
+    "command": "backend/.venv/bin/python -m unittest discover -s tests -p 'test_*.py'",
+    "passed": 32
+  },
+  "client": {
+    "commands": [
+      "node --test tests/*.test.cjs",
+      "node --test tests/*.test.mjs"
+    ],
+    "passed": 15
+  },
+  "build": {
+    "command": "cd frontend && npm run build",
+    "result": "passed",
+    "typescript": true,
+    "vite_modules": 1599,
+    "assets": [
+      "assets/index-BCilUMUU.js",
+      "assets/index-DS4xh1nq.css"
+    ]
+  },
+  "preview_render": {
+    "method": "React renderToStaticMarkup of actual component",
+    "cases": 6,
+    "result": "passed",
+    "checks": [
+      "full card and separate limits",
+      "unknown/no/yes distinct",
+      "multiple confirming contacts",
+      "missing link and empty states",
+      "long multiline reply and HTML escaping",
+      "no approval mutation controls in component"
+    ]
+  },
+  "independent_review": {
+    "method": "code reading and synthetic reproduction",
+    "finding": "Uncovered criteria computed from visible five were incorrectly described as no exercise in library",
+    "resolution": "UI now limits claim to shown selection and suggests checking other library exercises",
+    "status": "fixed before final build"
+  },
+  "regressions": [
+    "Three arrival failures no longer recommend dispatch-only scenario",
+    "Matching preserves required contact confirmation and failing snapshot provenance",
+    "Student recommendations do not expose candidate facts, contacts, answers or limits",
+    "First explicit saved accepted/rejected is distinct from opening and free text; missing is null, not zero",
+    "Real 046.11 import equals existing classifier JSON with 1281 types",
+    "Real 046.24 rejected; existing output preserved; new output directory not created on schema error"
+  ],
+  "browser": {
+    "status": "passed",
+    "method": "Headless Chromium 148 with bundled Playwright, actual localhost FastAPI and synthetic isolated SQLite",
+    "desktop_width_px": 1440,
+    "mobile_width_px": 390,
+    "checks": [
+      "Teacher signs in through rendered UI",
+      "Preview shows two limits, complete long card/contact text, unknown state, two explicit confirming contacts",
+      "390px preview has no horizontal overflow with unbroken long token",
+      "Escape closes preview",
+      "yes and no preview labels remain distinct from unknown",
+      "Reports distinguish accepted/rejected/absent; text and responding do not substitute; reconnection warning visible",
+      "Three controlled failures show empty suggestions and explicit uncovered criterion",
+      "Exactly matching candidate appears with explained rubric criterion",
+      "Recommendation payload does not expose future rubric contents",
+      "No browser page errors or external network requests",
+      "Nonzero first-decision time remains 0:02 after a later rejected decision; student view shows the same observation without teacher controls"
+    ],
+    "page_errors": [],
+    "external_requests": [],
+    "portable_screenshots": [
+      "../deliverables/assets/rc3-preview-desktop.png",
+      "../deliverables/assets/rc3-preview-mobile.png",
+      "../deliverables/assets/rc3-report-first-decision.png",
+      "../deliverables/assets/rc3-recommendation-match.png"
+    ],
+    "full_protocol": "rc3-ui-validation.md",
+    "limits": [
+      "Headless browser on local Mac; no human usability observation",
+      "Synthetic seed and QA fixtures only"
+    ]
+  },
+  "archive_install_evidence": null,
+  "limits": [
+    "No human pilot or interviews",
+    "Rubric match is not pedagogical equivalence or learning effectiveness",
+    "Telegram chat for the latest week was not read",
+    "046.24 schema audited but not migrated",
+    "Historical RC1/RC2 videos do not imply RC3 target-class or live telephony validation",
+    "Local macOS validation does not establish Linux or production suitability"
+  ]
+}

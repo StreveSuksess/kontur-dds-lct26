@@ -1,0 +1,10 @@
+{
+  "version": "redacted-public",
+  "items": [],
+  "warnings": [
+    "Производный классификатор заказчика исключён из публичной версии. Импортируйте исходную таблицу локально по docs/classifier-import.md."
+  ],
+  "metadata": {
+    "redacted": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "engine": "macOS say",
+  "voice": "Milena",
+  "locale": "ru_RU",
+  "kind": "prepared_local_tts",
+  "male_voice_available": false,
+  "clips": [
+    {
+      "id": "duty_greeting",
+      "url": "/audio/duty_greeting.wav",
+      "text": "Дежурный на связи. Слушаю ваш доклад.",
+      "seconds": 2.696,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits": 16
+    },
+    {
+      "id": "supervisor_greeting",
+      "url": "/audio/supervisor_greeting.wav",
+      "text": "Руководитель смены. Докладывайте обстановку.",
+      "seconds": 3.005,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits": 16
+    },
+    {
+      "id": "report_ack",
+      "url": "/audio/report_ack.wav",
+      "text": "Доклад принят. Информация получена.",
+      "seconds": 2.607,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits": 16
+    },
+    {
+      "id": "repeat_request",
+      "url": "/audio/repeat_request.wav",
+      "text": "Повторите, пожалуйста, адрес и какие меры уже приняты.",
+      "seconds": 3.716,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits": 16
+    }
+  ]
+}

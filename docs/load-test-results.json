@@ -1,0 +1,61 @@
+{
+  "read_100_users": {
+    "requests": 300,
+    "errors": 0,
+    "duration_seconds": 0.457,
+    "requests_per_second": 656.84,
+    "p50_ms": 270.4,
+    "p95_ms": 417.18,
+    "p99_ms": 425.26,
+    "status_codes": {
+      "200": 300
+    }
+  },
+  "write_20_sessions": {
+    "requests": 200,
+    "errors": 0,
+    "duration_seconds": 0.378,
+    "requests_per_second": 529.27,
+    "p50_ms": 36.57,
+    "p95_ms": 40.32,
+    "p99_ms": 53.66,
+    "status_codes": {
+      "200": 200
+    }
+  },
+  "report_20_sessions": {
+    "requests": 20,
+    "errors": 0,
+    "duration_seconds": 0.073,
+    "requests_per_second": 274.58,
+    "p50_ms": 45.33,
+    "p95_ms": 68.92,
+    "p99_ms": 68.92,
+    "status_codes": {
+      "200": 20
+    }
+  },
+  "persistence": {
+    "expected_status_events": 200,
+    "stored_status_events": 200,
+    "expected_completed_sessions": 20,
+    "stored_completed_sessions": 20
+  },
+  "targets": {
+    "api_p95_under_2_seconds": true,
+    "event_requests_at_least_100_per_second": true,
+    "reports_p95_under_30_seconds": true
+  },
+  "generated_at": "2026-09-18T22:38:04.182633+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13",
+  "database": "SQLite WAL, isolated temporary database",
+  "server_workers": 1,
+  "limitations": [
+    "API-only: no browser rendering measurement.",
+    "Local host differs from target classroom hardware and network.",
+    "Short burst: 300 reads, 200 writes and 20 reports; not a soak test.",
+    "One event request writes several SQL rows; throughput is HTTP commits, not a raw SQL INSERT benchmark.",
+    "User fixture creation and password hashing excluded; 100 distinct authenticated users."
+  ]
+}
